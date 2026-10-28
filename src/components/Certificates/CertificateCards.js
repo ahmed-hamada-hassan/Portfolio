@@ -18,16 +18,16 @@ function CertificateCards({ img, title, issuer, date, description, link, icon })
         )}
 
         <Card.Body style={{ padding: "18px 20px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
-          <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "8px" }}>
-            <div style={{ fontSize: "1.4em", color: "#c770f0", marginTop: "2px", flexShrink: 0 }}>
-              {icon || <TbCertificate />}
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "8px" }}>
+            <div style={{ fontSize: "1.4em", marginTop: "2px", flexShrink: 0, display: "flex", alignItems: "center" }}>
+              {icon || <TbCertificate color="#00e1d9" />}
             </div>
             <div style={{ flexGrow: 1 }}>
-              <Card.Title style={{ fontSize: "1.1em", fontWeight: "700", color: "#ffffff", margin: 0, lineHeight: "1.4" }}>
+              <Card.Title style={{ fontSize: "1.08em", fontWeight: "700", color: "#ffffff", margin: 0, lineHeight: "1.4" }}>
                 {title}
               </Card.Title>
-              <div style={{ color: "#c770f0", fontSize: "0.88em", marginTop: "4px" }}>
-                <strong style={{ color: "#e3b1f7" }}>{issuer}</strong> {date && `• ${date}`}
+              <div style={{ color: "#94a3b8", fontSize: "0.86em", marginTop: "4px" }}>
+                <strong style={{ color: "#00e1d9" }}>{issuer}</strong> {date && ` • ${date}`}
               </div>
             </div>
           </div>
@@ -35,11 +35,11 @@ function CertificateCards({ img, title, issuer, date, description, link, icon })
           {description && (
             <Card.Text
               style={{
-                color: "#d1d5db",
-                fontSize: "0.9em",
+                color: "#cbd5e1",
+                fontSize: "0.88em",
                 lineHeight: "1.6",
                 marginTop: "10px",
-                marginBottom: "12px",
+                marginBottom: "14px",
                 flexGrow: 1,
               }}
             >
@@ -58,10 +58,12 @@ function CertificateCards({ img, title, issuer, date, description, link, icon })
                   alignItems: "center",
                   gap: "6px",
                   fontSize: "0.85em",
-                  borderColor: "rgba(199, 112, 240, 0.4)",
-                  color: "#e3b1f7",
+                  borderColor: "rgba(0, 225, 217, 0.35)",
+                  color: "#00e1d9",
+                  background: "rgba(0, 225, 217, 0.05)",
                   borderRadius: "20px",
-                  padding: "4px 12px",
+                  padding: "4px 14px",
+                  transition: "all 0.3s ease",
                 }}
               >
                 <FiZoomIn /> Preview
@@ -99,20 +101,20 @@ function CertificateCards({ img, title, issuer, date, description, link, icon })
           size="lg"
           centered
           contentClassName="certificate-modal-content"
-          style={{ backdropFilter: "blur(5px)" }}
+          style={{ backdropFilter: "blur(6px)" }}
         >
           <Modal.Header
             closeButton
             closeVariant="white"
             style={{
-              background: "#0a0416",
-              borderBottom: "1px solid rgba(199, 112, 240, 0.25)",
+              background: "#060d1d",
+              borderBottom: "1px solid rgba(0, 225, 217, 0.25)",
               color: "#ffffff",
             }}
           >
-            <Modal.Title style={{ fontSize: "1.1em", fontWeight: "700" }}>{title}</Modal.Title>
+            <Modal.Title style={{ fontSize: "1.1em", fontWeight: "700", color: "#f8fafc" }}>{title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body style={{ background: "#000000", textAlign: "center", padding: "15px" }}>
+          <Modal.Body style={{ background: "#030712", textAlign: "center", padding: "16px" }}>
             <img
               src={img}
               alt={title}
@@ -121,19 +123,19 @@ function CertificateCards({ img, title, issuer, date, description, link, icon })
                 maxHeight: "80vh",
                 objectFit: "contain",
                 borderRadius: "8px",
-                boxShadow: "0 0 25px rgba(0,0,0,0.8)",
+                boxShadow: "0 0 30px rgba(0, 0, 0, 0.85)",
               }}
             />
           </Modal.Body>
           {link && (
             <Modal.Footer
               style={{
-                background: "#0a0416",
-                borderTop: "1px solid rgba(199, 112, 240, 0.25)",
+                background: "#060d1d",
+                borderTop: "1px solid rgba(0, 225, 217, 0.25)",
                 justifyContent: "space-between",
               }}
             >
-              <span style={{ color: "#c770f0", fontSize: "0.9em" }}>{issuer}</span>
+              <span style={{ color: "#00e1d9", fontSize: "0.9em", fontWeight: "600" }}>{issuer}</span>
               <Button
                 variant="primary"
                 size="sm"

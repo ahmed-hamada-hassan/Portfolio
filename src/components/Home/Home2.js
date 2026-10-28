@@ -13,32 +13,37 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I am an <b className="purple">AI Engineer</b> driven by building scalable, evaluation-driven, and reliable AI solutions for complex real-world challenges.
+              I am a dedicated <b className="purple">Full-Stack Developer</b>{" "}
+              specializing in the{" "}
+              <b className="purple">.NET ecosystem and Angular</b>
+              , driven by engineering scalable and high-performance systems.
               <br />
-              <br />
-              I specialize in
+              <br />I specialize in{" "}
               <i>
                 <b className="purple">
-                  {" "}
-                  Python, FastAPI, RAG Systems, and AI Agents{" "}
+                  C#, ASP.NET Core, Angular, and SQL Server
                 </b>
-              </i>
-              — with deep hands-on expertise across both AI architecture and software engineering.
+              </i>{" "}
+              utilizing{" "}
+              <b className="purple">
+                Clean Architecture, CQRS, and Domain-Driven Design (DDD)
+              </b>{" "}
+              to build maintainable, production-ready code.
               <br />
               <br />
-              My key areas of interest include developing
+              My key areas of focus include developing{" "}
               <i>
                 <b className="purple">
-                  {" "}
-                  Advanced Hybrid Retrieval, Multi-Agent Workflows,{" "}
+                  comprehensive end-to-end business solutions,
                 </b>
-              </i>
-              and production-ready GenAI applications.
+              </i>{" "}
+              like scalable E-Commerce platforms, and continuously expanding my
+              database capabilities.
               <br />
-              <br />
-              I am a
-              <b className="purple"> Microsoft Certified: Azure AI Apps and Agents Developer Associate (AI-103) </b>
-              and actively share practical AI engineering insights as a tech speaker, community mentor, and YouTube creator.
+              <br />I thrive on continuous independent learning, regularly
+              sharing technical insights on <b className="purple">LinkedIn</b>,
+              and tackling real-world software challenges while pursuing my
+              academic degree at <b className="purple">Beni-Suef University</b>.
             </p>
           </Col>
           <Col md={4} className="myAvtar">
@@ -46,15 +51,17 @@ function Home2() {
               <img
                 src={myImg}
                 className="img-fluid"
-                alt="Karim Ehab"
+                alt="Ahmed Hamada"
                 style={{
                   borderRadius: "50%",
-                  border: "4px solid #c770f0",
-                  boxShadow: "0 0 30px rgba(199, 112, 240, 0.45)",
+                  border: "3.5px solid #00e1d9",
+                  boxShadow:
+                    "0 0 25px rgba(0, 225, 217, 0.55), 0 0 45px rgba(0, 255, 135, 0.35)",
                   maxWidth: "280px",
                   width: "100%",
                   aspectRatio: "1/1",
                   objectFit: "cover",
+                  transition: "all 0.4s ease",
                 }}
               />
             </Tilt>

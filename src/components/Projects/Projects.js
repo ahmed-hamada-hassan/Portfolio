@@ -2,20 +2,20 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import candidateSearchImg from "../../Assets/Projects/candidate-search.png";
-import firstAidImg from "../../Assets/Projects/first-aid.png";
+import ecommerceImg from "../../Assets/Projects/ecommerce.png";
+import dvldImg from "../../Assets/Projects/dvld.png";
 
 function Projects() {
-  const candidateSearchPoints = [
-    "Designed and implemented explainable hybrid retrieval with Qdrant, combining semantic and lexical search with recruiter metadata filters and weighted candidate scoring across skills, experience, and education.",
-    "Architected a Dockerized microservices system with vendor-agnostic AI interfaces (Factory Design Pattern), integrating structured CV parsing with LangChain, Gemini API, and Pydantic.",
-    "Built a custom evaluation benchmark of 150 CVs & 30 JDs using LLM-assisted arena-style ranking; achieved 95.56% Precision@5 and 91.10% NDCG@10 with Redis caching to eliminate redundant embedding and inference calls (3–7s search latency).",
+  const ecommercePoints = [
+    "Engineered a highly scalable backend with 80+ endpoints utilizing Clean Architecture, Domain-Driven Design (DDD), and the CQRS pattern via MediatR.",
+    "Optimized system performance and data retrieval using Redis caching, Cursor/Offset pagination strategies, and custom EF Core Interceptors.",
+    "Implemented secure JWT authentication with Role-Based Access Control (RBAC), and automated core workflows using Background Hosted Services.",
   ];
 
-  const firstAidPoints = [
-    "Built a bilingual First-Aid RAG assistant with Qdrant hybrid dense/sparse retrieval fused via Reciprocal Rank Fusion (RRF), metadata filtering, and Groq Whisper voice query support in both English and Arabic.",
-    "Engineered and deployed independent cloud microservices separating GPU-intensive inference workloads for optimal latency, fault isolation, and scalability.",
-    "Evaluated on 25 ground-truth queries, achieving ~98% Precision@3, 100% Recall@3, and 96% MRR. Ragas evaluation demonstrated 98% Answer Relevancy and 100% Faithfulness with full test validation using Pytest.",
+  const dvldPoints = [
+    "Engineered a comprehensive desktop application for license and violation management, strictly adhering to a 3-Tier Architecture (Presentation, BLL, DAL) for optimal code modularity.",
+    "Developed robust C# business logic and ADO.NET data access layers to handle complex workflows, including application tracking, test scheduling, and multi-category license issuance.",
+    "Designed an intuitive Windows Forms GUI with advanced data binding and input validation, backed by a highly relational SQL Server database.",
   ];
 
   return (
@@ -26,27 +26,27 @@ function Projects() {
           My Recent <strong className="purple">Works</strong>
         </h1>
         <p style={{ color: "white" }}>
-          Here are the featured AI and RAG projects I've built recently.
+          Here are the featured back-end, Full-Stack, and desktop application
+          projects I've built recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={6} className="project-card">
             <ProjectCard
-              imgPath={candidateSearchImg}
+              imgPath={ecommerceImg}
               isBlog={false}
-              title="AI-Powered Candidate Search & Ranking System"
-              points={candidateSearchPoints}
-              demoLink="https://youtu.be/EpmqGmgQxUQ?si=5Xol4pNsQzBI-9q5"
-              isYoutube={true}
+              title="E-Commerce API - Back-End"
+              points={ecommercePoints}
+              ghLink="https://github.com/ahmed-hamada-hassan/ecommerce-backend"
             />
           </Col>
 
           <Col md={6} className="project-card">
             <ProjectCard
-              imgPath={firstAidImg}
+              imgPath={dvldImg}
               isBlog={false}
-              title="AI First-Aid Assistant"
-              points={firstAidPoints}
-              ghLink="https://github.com/Karim-Ehab-AI/AI-First-Aid-Assistant"
+              title="Driver & Vehicle Licensing System (DVLD)"
+              points={dvldPoints}
+              ghLink="https://github.com/ahmed-hamada-hassan/DVLD-System"
             />
           </Col>
         </Row>

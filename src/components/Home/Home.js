@@ -4,12 +4,8 @@ import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
-import {
-  AiFillGithub,
-  AiFillYoutube,
-  AiOutlineMail,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
+import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
 function Home() {
   return (
@@ -28,7 +24,7 @@ function Home() {
 
               <h1 className="heading-name">
                 I'M
-                <strong className="main-name"> KARIM EHAB</strong>
+                <strong className="main-name"> Ahmed Hamada</strong>
               </h1>
 
               <div style={{ padding: 50, textAlign: "left" }}>
@@ -54,12 +50,12 @@ function Home() {
           <Col md={12} className="home-about-social">
             <h1>Find Me On</h1>
             <p>
-              Feel free to <span className="purple">connect </span>with me
+              Feel free to <span className="purple">connect</span> with me
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">
                 <a
-                  href="https://www.linkedin.com/in/karim-ehab-b221a22a3/"
+                  href="https://www.linkedin.com/in/ahmed-hamada-ahmed/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -69,7 +65,7 @@ function Home() {
               </li>
               <li className="social-icons">
                 <a
-                  href="mailto:karim.ehab.ai@gmail.com"
+                  href="mailto:iamahmedhamada.dev@gmail.com"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
@@ -79,22 +75,22 @@ function Home() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://github.com/Karim-Ehab-AI"
+                  href="https://wa.me/201008122350"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                >
+                  <FaWhatsapp />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://github.com/ahmed-hamada-hassan"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
                 >
                   <AiFillGithub />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.youtube.com/@Karim-Ehab-AI"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiFillYoutube />
                 </a>
               </li>
             </ul>
