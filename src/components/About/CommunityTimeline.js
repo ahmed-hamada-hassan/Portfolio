@@ -5,26 +5,12 @@ import { AiFillYoutube } from "react-icons/ai";
 function CommunityTimeline() {
   const activities = [
     {
-      role: "Head of AI",
-      company: "Google Developer Group on Campus (GDG)",
-      date: "Sep 2025 – Aug 2026",
-      location: "Benha University",
+      role: "",
+      company: "",
+      date: "",
+      location: "",
       icon: <FaUsers />,
-      points: [
-        "Led AI workshops and practical projects for 30+ core members across ML, NLP, LLMs, and Generative AI workflows.",
-        "Mentored aspiring developers and coordinated technical hands-on sessions on modern AI architectures.",
-      ],
-    },
-    {
-      role: "AI Content Creator",
-      company: "YouTube (@Karim-Ehab-AI)",
-      date: "Dec 2025 – Present",
-      location: "Online",
-      icon: <AiFillYoutube />,
-      points: [
-        "Publishing in-depth technical video content covering AI, Machine Learning, Deep Learning, LLMs, RAG architectures, and vector databases.",
-        "Sharing practical tutorials to empower the developer community in building production-ready AI applications.",
-      ],
+      points: [],
     },
   ];
 
@@ -45,7 +31,8 @@ function CommunityTimeline() {
                   <FaCalendarAlt style={{ fontSize: "0.85em" }} /> {act.date}
                 </span>
                 <span className="timeline-badge">
-                  <FaMapMarkerAlt style={{ fontSize: "0.85em" }} /> {act.location}
+                  <FaMapMarkerAlt style={{ fontSize: "0.85em" }} />{" "}
+                  {act.location}
                 </span>
               </div>
             </div>
@@ -63,4 +50,3 @@ function CommunityTimeline() {
 }
 
 export default CommunityTimeline;
-

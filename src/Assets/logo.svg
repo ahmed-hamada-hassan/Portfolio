@@ -1,10 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" width="160" height="60">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 390" role="img" aria-labelledby="title desc">
+  <title id="title">AH Monogram</title>
+  <desc id="desc">Geometric AH developer monogram with a blue-to-cyan-to-green gradient.</desc>
   <defs>
-    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c770f0" />
-      <stop offset="100%" stop-color="#623686" />
+    <linearGradient id="ah-gradient" x1="0%" y1="75%" x2="100%" y2="25%">
+      <stop offset="0%" stop-color="#1239E8"/>
+      <stop offset="48%" stop-color="#08C7D5"/>
+      <stop offset="100%" stop-color="#08E99A"/>
     </linearGradient>
   </defs>
-  <!-- Stylized Monogram KE -->
-  <text x="10" y="44" font-family="&#39;Courier New&#39;, Courier, monospace, sans-serif" font-weight="900" font-size="44" fill="url(#logoGrad)" letter-spacing="2"><KE/></text>
+  <path d="M 0,387 L 0,389 L 62,389 L 77,353 L 80,343 L 83,338 L 86,328 L 92,317 L 182,317 L 183,316 L 200,316 L 203,319 L 202,322 L 202,339 L 253,191 L 255,189 L 274,189 L 275,193 L 265,222 L 263,225 L 262,231 L 260,234 L 247,274 L 245,277 L 240,292 L 240,295 L 238,298 L 238,301 L 236,304 L 229,327 L 227,330 L 227,333 L 225,336 L 225,340 L 234,330 L 236,331 L 258,389 L 306,389 L 306,283 L 274,303 L 273,302 L 273,279 L 279,274 L 281,274 L 297,263 L 302,261 L 306,257 L 271,235 L 276,221 L 279,216 L 281,216 L 331,247 L 333,249 L 333,264 L 420,264 L 421,265 L 421,279 L 422,280 L 422,296 L 421,297 L 422,299 L 421,302 L 421,311 L 422,312 L 422,328 L 421,329 L 422,331 L 421,375 L 422,376 L 421,377 L 421,382 L 422,384 L 421,387 L 422,389 L 478,389 L 479,388 L 479,369 L 478,368 L 478,361 L 479,360 L 479,340 L 478,339 L 479,336 L 478,335 L 478,328 L 479,327 L 479,304 L 478,303 L 479,302 L 478,298 L 479,295 L 479,94 L 478,93 L 422,93 L 421,95 L 422,211 L 420,213 L 308,213 L 306,211 L 306,94 L 305,93 L 277,93 L 276,94 L 252,94 L 250,93 L 249,94 L 249,191 L 243,198 L 199,93 L 122,93 Z M 160,147 L 166,158 L 167,163 L 170,168 L 174,181 L 177,186 L 190,221 L 192,222 L 208,212 L 209,213 L 209,236 L 177,257 L 187,265 L 211,279 L 209,288 L 204,298 L 200,297 L 188,289 L 183,287 L 151,266 L 114,266 L 113,265 L 114,259 L 126,233 L 137,203 L 148,178 L 150,170 Z" fill="url(#ah-gradient)" fill-rule="evenodd" clip-rule="evenodd"/>
+  <path d="M 160,0 L 144,40 L 137,54 L 131,69 L 130,75 L 132,76 L 137,75 L 138,76 L 189,76 L 192,75 L 162,1 Z" fill="url(#ah-gradient)"/>
 </svg>

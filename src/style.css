@@ -1,29 +1,102 @@
+/* ==========================================================================
+   AHMED HAMADA PORTFOLIO - DESIGN SYSTEM
+   Theme: Ancient History & Manuscripts meets Cyber-Tech Full-Stack Developer
+   Palette: Deep Midnight Navy, Vibrant Cyan (#00E1D9) & Neon Spring Green (#00FF87)
+   Typography: 'Cinzel' & 'Playfair Display' (Classical Serif) + 'Fira Code' & 'Inter' (Cyber Mono)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root,
 html {
+  /* Midnight Navy Background Gradients */
   --section-background-color: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.582),
-    rgba(12, 8, 24, 0.904)
+    rgba(7, 18, 38, 0.72),
+    rgba(3, 8, 18, 0.96)
   );
 
   --image-gradient: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.678),
-    rgba(12, 10, 22, 0.863)
+    rgba(8, 22, 44, 0.75),
+    rgba(3, 7, 16, 0.94)
   );
 
-  --imp-text-color: #c770f0;
+  /* Primary Accent Colors & Gradients from Logo */
+  --imp-text-color: #00e1d9;
+  --accent-cyan: #00e1d9;
+  --accent-green: #00ff87;
+  --accent-blue: #1239e8;
+  --accent-gradient: linear-gradient(135deg, #00e1d9 0%, #00ff87 100%);
+  --accent-gradient-text: linear-gradient(90deg, #00e1d9 0%, #00ff87 100%);
+
+  /* Deep Navy Background Shades */
+  --bg-deep-navy: #040814;
+  --bg-midnight: #060d1d;
+  --bg-parchment-navy: #081426;
+
+  /* Subtle Glowing Shadows */
+  --cyan-glow-sm: 0 0 10px rgba(0, 225, 217, 0.35);
+  --cyan-glow-md: 0 0 20px rgba(0, 225, 217, 0.45);
+  --green-glow-sm: 0 0 10px rgba(0, 255, 135, 0.35);
+  --green-glow-md: 0 0 22px rgba(0, 255, 135, 0.5);
+
+  /* Borders */
+  --border-cyan-subtle: rgba(0, 225, 217, 0.25);
+  --border-cyan-glow: rgba(0, 225, 217, 0.65);
+  --border-green-glow: rgba(0, 255, 135, 0.7);
+}
+
+/* -------------------------------------------------- */
+/* Global Typography & Base Styles                     */
+/* -------------------------------------------------- */
+body {
+  margin: 0;
+  font-family: 'Fira Code', 'Inter', monospace, sans-serif !important;
+  color: #e2e8f0;
+  background-color: var(--bg-deep-navy) !important;
+  background-image: radial-gradient(circle at 50% 25%, #081730 0%, #040915 65%, #02050b 100%) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Classical Manuscript Serif for All Headings */
+h1, h2, h3, h4, h5, h6,
+.heading,
+.heading-name,
+.resume-title,
+.project-heading,
+.cert-section-header {
+  font-family: 'Cinzel', 'Playfair Display', serif !important;
+  letter-spacing: 0.6px;
+}
+
+/* Clean Monospace for Technical Details, Badges & Activities */
+p,
+.timeline-desc,
+.about-activity,
+.like-item,
+.fork-btn {
+  font-family: 'Fira Code', 'Inter', monospace, sans-serif;
 }
 
 .purple {
-  color: var(--imp-text-color) !important;
+  color: #00e1d9 !important;
+  background: linear-gradient(90deg, #00e1d9 0%, #00ff87 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 700;
+  filter: drop-shadow(0 0 8px rgba(0, 225, 217, 0.3));
 }
 
 button:focus {
   box-shadow: none !important;
+  outline: none !important;
 }
 
 /* --------- */
-/*  Preloader */
+/* Preloader */
 /* --------- */
 #preloader {
   position: fixed;
@@ -32,10 +105,11 @@ button:focus {
   width: 100%;
   height: 100%;
   z-index: 999999;
-  background-color: #000000;
+  background-color: var(--bg-deep-navy);
   background-image: url(./Assets/pre.svg);
   background-repeat: no-repeat;
   background-position: center;
+  box-shadow: inset 0 0 100px rgba(0, 225, 217, 0.08);
 }
 
 #preloader-none {
@@ -48,45 +122,45 @@ button:focus {
 }
 
 /* --------- */
-/*Scrollbar   */
+/* Scrollbar */
 /* --------- */
-
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #0a0416;
+  background: #030712;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(199, 112, 240, 0.7);
+  background: linear-gradient(180deg, rgba(0, 225, 217, 0.7) 0%, rgba(0, 255, 135, 0.7) 100%);
   border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 225, 217, 0.5);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(199, 112, 240, 0.95);
-  border-radius: 12px;
+  background: linear-gradient(180deg, #00e1d9 0%, #00ff87 100%);
+  box-shadow: 0 0 14px rgba(0, 255, 135, 0.8);
 }
 
-/* --------- */
-/* Navbar Section  */
-/* --------- */
+/* -------------- */
+/* Navbar Section */
+/* -------------- */
 .sticky {
-  background-color: #000000a9 !important;
+  background-color: rgba(4, 9, 20, 0.88) !important;
   transition: all 0.3s ease-out 0s !important;
-  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(15px) !important;
+  box-shadow: 0px 10px 25px 0px rgba(0, 6, 18, 0.7), 0 1px 0 rgba(0, 225, 217, 0.25) !important;
+  backdrop-filter: blur(16px) !important;
 }
 
 .navbar {
   position: fixed !important;
   transition: all 0.3s ease-out 0s !important;
   padding: 0.3rem 2rem !important;
-  font-size: 1.2rem !important;
+  font-size: 1.15rem !important;
 }
 
 .navbar-toggler {
@@ -97,14 +171,16 @@ button:focus {
 
 .navbar-toggler span {
   display: block !important;
-  background-color: #c770f0 !important;
-  height: 4px !important;
+  background: linear-gradient(90deg, #00e1d9 0%, #00ff87 100%) !important;
+  height: 3px !important;
   width: 27px !important;
   margin-top: 5px !important;
   margin-bottom: 5px !important;
   transform: rotate(0deg) !important;
   left: 0 !important;
   opacity: 1 !important;
+  border-radius: 2px !important;
+  box-shadow: 0 0 8px rgba(0, 225, 217, 0.6) !important;
 }
 
 .navbar-toggler:focus,
@@ -142,26 +218,37 @@ button:focus {
 @media (max-width: 767px) {
   .navbar {
     padding: 1rem 2rem !important;
-    font-size: 1.4rem !important;
-    background-color: #000000 !important;
+    font-size: 1.3rem !important;
+    background-color: var(--bg-deep-navy) !important;
+    border-bottom: 1px solid rgba(0, 225, 217, 0.2) !important;
   }
   .navbar-nav .nav-item a::after {
     display: none !important;
   }
 }
+
 .navbar-brand {
   color: rgb(250, 250, 250) !important;
 }
 
 .logo {
-  height: 1.4em !important;
-  width: 2.5em !important;
+  height: 1.5em !important;
+  width: auto !important;
+  filter: drop-shadow(0 0 8px rgba(0, 225, 217, 0.5));
+  transition: filter 0.3s ease;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 14px rgba(0, 255, 135, 0.8));
 }
 
 .navbar-nav .nav-link {
-  color: white !important;
+  color: #cbd5e1 !important;
   padding-right: 1rem !important;
   padding-left: 1rem !important;
+  font-family: 'Fira Code', monospace !important;
+  font-size: 0.95em !important;
+  letter-spacing: 0.3px !important;
 }
 
 .nav-link {
@@ -180,20 +267,26 @@ button:focus {
 }
 
 .navbar-nav .nav-item a {
-  font-weight: 400;
+  font-weight: 500;
   transition: all 0.3s ease-out 0s;
   position: relative;
   z-index: 1;
+}
+
+.navbar-nav .nav-item a:hover {
+  color: #00e1d9 !important;
+  text-shadow: 0 0 10px rgba(0, 225, 217, 0.6);
 }
 
 .navbar-nav .nav-item a::after {
   content: "";
   position: relative;
   display: block;
-  height: 5px;
+  height: 3px;
   width: 0;
   border-radius: 16px;
-  background: #c770f0;
+  background: linear-gradient(90deg, #00e1d9 0%, #00ff87 100%);
+  box-shadow: 0 0 10px rgba(0, 225, 217, 0.7);
   bottom: 1px;
   left: 0;
   z-index: -1;
@@ -204,9 +297,9 @@ button:focus {
   width: 100%;
 }
 
-/* --------- */
-/* Home section */
-/* --------- */
+/* ------------ */
+/* Home Section */
+/* ------------ */
 .wave {
   animation-name: wave-animation;
   animation-duration: 2.1s;
@@ -225,10 +318,10 @@ button:focus {
   60% { transform: rotate(0deg); }
   100% { transform: rotate(0deg); }
 }
+
 #tsparticles {
   position: fixed !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
+  background: radial-gradient(circle at 50% 25%, #081730 0%, #040915 65%, #02050b 100%) !important;
   width: 100%;
   height: 100%;
   z-index: -1 !important;
@@ -245,36 +338,56 @@ button:focus {
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
   padding-top: 30px !important;
+  background-image: 
+    radial-gradient(rgba(0, 225, 217, 0.04) 1px, transparent 1px),
+    var(--section-background-color);
+  background-size: 36px 36px, 100% 100%;
 }
 
 .home-content {
   padding: 9rem 0 2rem !important;
-  color: whitesmoke;
+  color: #f8fafc;
   text-align: left;
 }
 
 .heading {
   font-size: 2.4em !important;
   padding-left: 50px !important;
+  color: #f1f5f9;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .heading-name {
   font-size: 2.5em !important;
   padding-left: 45px !important;
+  color: #f1f5f9;
+  letter-spacing: 1px;
 }
 
 .main-name {
-  color: #c770f0;
+  background: linear-gradient(135deg, #00e1d9 0%, #00ff87 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #00e1d9;
+  font-weight: 800;
+  filter: drop-shadow(0 0 18px rgba(0, 225, 217, 0.45));
 }
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: #c770f0 !important;
+  color: #00e1d9 !important;
+  background: linear-gradient(90deg, #00e1d9 0%, #00ff87 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 600 !important;
+  font-family: 'Fira Code', monospace !important;
+  letter-spacing: 0.5px;
 }
+
 .Typewriter__cursor {
   font-size: 2.4em !important;
-  color: #c770f0 !important;
+  color: #00ff87 !important;
+  text-shadow: 0 0 12px rgba(0, 255, 135, 0.8);
 }
 
 @media (max-width: 767px) {
@@ -293,6 +406,16 @@ button:focus {
   padding-top: 9em !important;
 }
 
+.myAvtar img {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.myAvtar img:hover {
+  border-color: #00ff87 !important;
+  box-shadow: 0 0 35px rgba(0, 255, 135, 0.75), 0 0 60px rgba(0, 225, 217, 0.5) !important;
+  transform: scale(1.03);
+}
+
 @media (max-width: 767px) {
   .myAvtar {
     padding-top: 2em !important;
@@ -307,7 +430,7 @@ button:focus {
 }
 
 .home-about-description {
-  color: white !important;
+  color: #f1f5f9 !important;
   padding-top: 100px !important;
   padding-bottom: 20px !important;
   text-align: center;
@@ -315,14 +438,26 @@ button:focus {
 
 .home-about-body {
   padding-top: 50px;
-  font-size: 1.2em !important;
+  font-size: 1.15em !important;
+  line-height: 1.8 !important;
   text-align: left;
+  color: #cbd5e1;
 }
 
 .home-about-social {
   text-align: center !important;
   padding-top: 25px;
-  color: white !important;
+  color: #f8fafc !important;
+}
+
+.home-about-social h1 {
+  font-size: 2.2em;
+  letter-spacing: 1px;
+}
+
+.home-about-social p {
+  color: #94a3b8;
+  font-size: 1.05em;
 }
 
 .home-about-social-links {
@@ -336,14 +471,17 @@ button:focus {
 .home-social-icons {
   position: relative !important;
   display: inline-block !important;
-  width: 40px !important;
-  height: 40px !important;
+  width: 44px !important;
+  height: 44px !important;
   text-align: center !important;
-  font-size: 1.2em !important;
-  line-height: 2em !important;
-  background: rgba(255, 255, 255, 0.972) !important;
+  font-size: 1.25em !important;
+  line-height: 2.2em !important;
+  background: var(--bg-parchment-navy) !important;
+  border: 1.5px solid rgba(0, 225, 217, 0.35) !important;
   border-radius: 50% !important;
-  transition: 0.5s !important;
+  color: #00e1d9 !important;
+  box-shadow: 0 4px 15px rgba(2, 6, 14, 0.6), inset 0 0 10px rgba(0, 225, 217, 0.08) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
 .home-social-icons::before {
@@ -354,21 +492,24 @@ button:focus {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #623686;
-  transition: 0.5s;
+  background: linear-gradient(135deg, #00e1d9 0%, #00ff87 100%);
+  opacity: 0.15;
+  transition: 0.4s ease;
   transform: scale(0.9);
   z-index: -1;
 }
 
 .home-social-icons:hover::before {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #c770f0;
+  transform: scale(1.18);
+  opacity: 1;
+  box-shadow: 0 0 20px rgba(0, 225, 217, 0.8), 0 0 35px rgba(0, 255, 135, 0.5);
 }
 
 .home-social-icons:hover {
-  color: #c770f0;
-  box-shadow: 0 0 5px #c770f0;
-  text-shadow: 0 0 2px #c770f0;
+  color: #040914 !important;
+  border-color: #00ff87 !important;
+  transform: translateY(-4px) rotate(8deg);
+  box-shadow: 0 0 18px rgba(0, 225, 217, 0.7) !important;
 }
 
 .social-icons {
@@ -378,18 +519,21 @@ button:focus {
 }
 
 .icon-colour {
-  color: #c770f0 !important;
+  color: #00e1d9 !important;
 }
 
-/* --------- */
+/* ------ */
 /* Footer */
-/* --------- */
+/* ------ */
 .footer {
-  background-color: rgb(0, 0, 0);
+  background-color: var(--bg-deep-navy) !important;
+  border-top: 1px solid rgba(0, 225, 217, 0.2);
+  box-shadow: 0 -5px 25px rgba(0, 8, 20, 0.7);
   bottom: 0 !important;
-  padding-top: 10px !important;
-  padding-bottom: 8px !important ;
+  padding-top: 14px !important;
+  padding-bottom: 12px !important;
 }
+
 .footer-copywright {
   text-align: center !important;
 }
@@ -410,28 +554,64 @@ button:focus {
 }
 
 .footer h3 {
-  font-size: 1em;
-  color: white !important;
+  font-size: 0.95em;
+  color: #94a3b8 !important;
   margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
+  font-family: 'Fira Code', monospace !important;
+  letter-spacing: 0.3px;
 }
+
 .footer-icons {
   margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
   padding: 0 !important;
 }
 
-.blockquote-footer {
-  color: #c770f0 !important;
+/* Scroll To Top Button in Footer */
+.scroll-to-top-btn {
+  background: var(--bg-parchment-navy);
+  border: 1.5px solid rgba(0, 225, 217, 0.35);
+  color: #00e1d9;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(2, 6, 14, 0.6), inset 0 0 10px rgba(0, 225, 217, 0.08);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-/* --------- */
+
+.scroll-to-top-btn:hover {
+  background: linear-gradient(135deg, #00e1d9 0%, #00ff87 100%);
+  color: #030813;
+  border-color: #00ff87;
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(0, 225, 217, 0.7), 0 0 30px rgba(0, 255, 135, 0.5);
+}
+
+.blockquote-footer {
+  color: #00ff87 !important;
+  font-family: 'Fira Code', monospace !important;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+/* -------- */
 /* Projects */
-/* --------- */
+/* -------- */
 .project-section {
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
+  background-image: 
+    radial-gradient(rgba(0, 225, 217, 0.04) 1px, transparent 1px),
+    var(--section-background-color) !important;
+  background-size: 36px 36px, 100% 100% !important;
 }
 
 .project-card {
@@ -442,21 +622,29 @@ button:focus {
   height: auto !important;
 }
 
+/* Dark-Themed Parchment with Ultra-Modern Glowing Cyan/Green Border */
 .project-card-view {
-  background: rgba(12, 8, 24, 0.92) !important;
-  border: 1px solid rgba(199, 112, 240, 0.35) !important;
+  background: linear-gradient(160deg, rgba(9, 20, 38, 0.92) 0%, rgba(5, 12, 24, 0.96) 100%) !important;
+  border: 1px solid rgba(0, 225, 217, 0.28) !important;
   border-radius: 16px !important;
-  box-shadow: 0 6px 24px rgba(119, 53, 136, 0.25) !important;
-  color: white !important;
+  box-shadow: 0 8px 24px rgba(2, 6, 14, 0.65), inset 0 1px 0 rgba(0, 225, 217, 0.15) !important;
+  color: #f1f5f9 !important;
   opacity: 1 !important;
-  backdrop-filter: blur(10px) !important;
-  transition: all 0.4s ease 0s !important;
+  backdrop-filter: blur(14px) !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
   height: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
+
+/* Mimics the smooth turning of a book page, accompanied by a high-tech neon glow */
 .project-card-view:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 10px 32px rgba(199, 112, 240, 0.45) !important;
-  border-color: rgba(199, 112, 240, 0.75) !important;
+  transform: translateY(-7px) scale(1.015) !important;
+  box-shadow: 
+    0 18px 40px rgba(0, 10, 25, 0.85),
+    0 0 25px rgba(0, 225, 217, 0.38),
+    0 0 12px rgba(0, 255, 135, 0.28) !important;
+  border-color: rgba(0, 255, 135, 0.75) !important;
 }
 
 .blog-card {
@@ -468,99 +656,134 @@ button:focus {
 }
 
 .blog-card-view {
-  background-color: transparent !important;
-  box-shadow: 0 3px 3px 2px rgba(119, 53, 136, 0.35) !important;
-  color: white !important;
-  transition: all 0.5s ease 0s !important;
+  background: linear-gradient(160deg, rgba(9, 20, 38, 0.92) 0%, rgba(5, 12, 24, 0.96) 100%) !important;
+  border: 1px solid rgba(0, 225, 217, 0.25) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 6px 20px rgba(2, 6, 14, 0.6) !important;
+  color: #f1f5f9 !important;
+  transition: all 0.45s ease 0s !important;
   height: 100% !important;
 }
 
 .blog-link {
-  color: white !important;
+  color: #f1f5f9 !important;
   text-decoration: none !important;
+  transition: color 0.3s ease;
 }
 
 .blog-link:hover {
   cursor: pointer !important;
+  color: #00e1d9 !important;
 }
 
 .blog-card-view:hover {
-  transform: scale(1.02) !important;
+  transform: translateY(-5px) scale(1.01) !important;
   overflow: hidden !important;
-  box-shadow: 0 3px 3px 5px rgba(199, 112, 240, 0.5) !important;
+  box-shadow: 0 14px 34px rgba(0, 225, 217, 0.35), 0 0 18px rgba(0, 255, 135, 0.25) !important;
+  border-color: rgba(0, 255, 135, 0.7) !important;
 }
 
 .card-img-top {
   padding: 0 !important;
   opacity: 1 !important;
   border-radius: 12px !important;
+  border: 1px solid rgba(0, 225, 217, 0.15) !important;
+  transition: transform 0.35s ease;
+}
+
+.project-card-view:hover .card-img-top {
+  transform: scale(1.02);
 }
 
 .blog-img {
   padding: 0px !important;
-  opacity: 0.8 !important;
+  opacity: 0.85 !important;
   border-radius: 0px !important;
 }
 
+/* Button with Vibrant Cyan transitioning to Neon Spring Green */
 .btn-primary {
-  color: #fff !important;
-  background-color: #623686 !important;
-  border-color: #623686 !important;
+  color: #030813 !important;
+  font-weight: 600 !important;
+  font-family: 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+  letter-spacing: 0.5px !important;
+  background: linear-gradient(135deg, #00e1d9 0%, #00ff87 100%) !important;
+  border: 1px solid rgba(0, 255, 135, 0.6) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 225, 217, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
 .btn-primary:hover {
-  color: #fff !important;
-  background-color: #4d2a69 !important;
-  border-color: #4d2a69 !important;
+  color: #01040a !important;
+  background: linear-gradient(135deg, #00ff87 0%, #00e1d9 100%) !important;
+  border-color: #00ff87 !important;
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 8px 24px rgba(0, 255, 135, 0.5), 0 0 16px rgba(0, 225, 217, 0.4) !important;
 }
+
 .btn:focus {
   outline: none !important;
   box-shadow: none !important;
 }
+
 .project-heading {
-  color: white !important;
+  color: #ffffff !important;
   font-size: 2.3em !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   padding-top: 10px !important;
+  letter-spacing: 0.8px;
 }
 
-/* --------- */
+/* ----- */
 /* About */
-/* --------- */
-
+/* ----- */
 .about-section {
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
-  color: white !important;
+  color: #f1f5f9 !important;
+  background-image: 
+    radial-gradient(rgba(0, 225, 217, 0.04) 1px, transparent 1px),
+    var(--section-background-color) !important;
+  background-size: 36px 36px, 100% 100% !important;
 }
 
+/* Tech Badges & Stacks */
 .tech-icons {
   display: flex !important;
   align-self: center !important;
   justify-content: center !important;
   font-size: 1rem !important;
   margin: 15px !important;
-  padding: 10px 20px !important;
-  opacity: 0.93 !important;
-  outline: 1.7px solid rgba(199, 112, 240, 0.5) !important;
+  padding: 10px 22px !important;
+  opacity: 0.95 !important;
+  background: linear-gradient(145deg, rgba(8, 18, 36, 0.9) 0%, rgba(4, 10, 22, 0.95) 100%) !important;
+  border: 1px solid rgba(0, 225, 217, 0.3) !important;
+  outline: none !important;
   vertical-align: middle !important;
   text-align: center !important;
   border-radius: 24px !important;
-  box-shadow: 4px 5px 4px 3px rgba(119, 53, 136, 0.1) !important;
+  box-shadow: 0 4px 16px rgba(2, 6, 14, 0.55), inset 0 1px 0 rgba(0, 225, 217, 0.15) !important;
   overflow: hidden !important;
-  transition: all 0.4s ease 0s !important;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
   width: fit-content !important;
   cursor: pointer !important;
-  transition: outline-color 0.3s, outline-width 0.3s, transform 0.3s;
-  color: white;
+  color: #f1f5f9;
+  font-family: 'Fira Code', monospace !important;
 }
 
 .tech-icons-text {
   display: flex;
   align-items: center;
   margin-left: 10px;
-  color: white;
+  color: #f1f5f9;
+  font-family: 'Fira Code', monospace !important;
+  font-weight: 500;
+  font-size: 0.92em;
 }
 
 @media (max-width: 767px) {
@@ -570,25 +793,59 @@ button:focus {
 }
 
 .tech-icons:hover {
-  transform: scale(1.05) !important;
+  transform: translateY(-4px) scale(1.06) !important;
   overflow: hidden !important;
-  outline: 2.2px solid rgba(199, 112, 240, 0.9) !important;
+  border-color: #00ff87 !important;
+  box-shadow: 0 10px 25px rgba(0, 225, 217, 0.38), 0 0 15px rgba(0, 255, 135, 0.3) !important;
+  color: #00e1d9 !important;
 }
+
 .tech-icon-images {
   height: 1.6rem;
   line-height: 1.6 !important;
 }
 
+/* Illuminated Manuscript Style Quote / About Card */
 .quote-card-view {
   border: none !important;
-  color: white !important;
-  background-color: transparent !important;
+  color: #e2e8f0 !important;
+  background: linear-gradient(160deg, rgba(8, 19, 36, 0.7) 0%, rgba(4, 10, 22, 0.85) 100%) !important;
+  border-left: 4px solid #00e1d9 !important;
+  border-image: linear-gradient(to bottom, #00e1d9 0%, #00ff87 100%) 1 100% !important;
+  border-radius: 0 16px 16px 0 !important;
+  padding: 26px 30px !important;
+  box-shadow: 0 8px 24px rgba(2, 6, 14, 0.6), inset 0 0 30px rgba(0, 225, 217, 0.04) !important;
+  position: relative !important;
+}
+
+.quote-card-view blockquote {
+  position: relative;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05em;
+  line-height: 1.8;
+}
+
+.quote-card-view blockquote p::first-letter {
+  font-family: 'Cinzel', serif;
+  font-size: 2.3em;
+  float: left;
+  line-height: 0.88;
+  margin-right: 10px;
+  background: linear-gradient(135deg, #00e1d9 0%, #00ff87 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  filter: drop-shadow(0 0 10px rgba(0, 225, 217, 0.5));
 }
 
 .about-activity {
   list-style: none !important;
   text-align: left !important;
   padding-left: 1px !important;
+  font-family: 'Fira Code', monospace !important;
+  font-size: 0.95em;
+  color: #cbd5e1;
 }
 
 @media (max-width: 767px) {
@@ -596,16 +853,19 @@ button:focus {
     padding-top: 0 !important;
   }
 }
-/* --------- */
-/* Resume */
-/* --------- */
 
+/* ------ */
+/* Resume */
+/* ------ */
 .resume-section {
   position: relative !important;
   padding-top: 110px !important;
   padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
-  color: white !important;
+  background-image: 
+    radial-gradient(rgba(0, 225, 217, 0.04) 1px, transparent 1px),
+    var(--section-background-color) !important;
+  background-size: 36px 36px, 100% 100% !important;
+  color: #f1f5f9 !important;
 }
 
 .resume {
@@ -633,33 +893,41 @@ button:focus {
     padding-left: 15px !important;
   }
 }
+
 .resume .resume-title {
   font-size: 2em;
   font-weight: 700;
   padding-top: 30px;
   padding-bottom: 30px;
+  color: #ffffff;
 }
 
 .resume .resume-item {
-  padding: 0 0 10px 25px;
+  padding: 0 0 12px 25px;
   margin-top: -2px;
-  border-left: 2px solid #c770f0;
+  border-left: 2px solid #00e1d9;
+  box-shadow: -2px 0 12px rgba(0, 225, 217, 0.35);
   position: relative;
 }
 
 .resume .resume-item .resume-title {
   line-height: 18px;
   font-size: 0.9em;
-  background: rgba(199, 112, 240, 0.1);
+  background: rgba(0, 225, 217, 0.08);
+  border: 1px solid rgba(0, 225, 217, 0.28);
+  border-radius: 6px;
+  color: #00ff87;
   padding: 8px 15px;
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
+  font-family: 'Fira Code', monospace !important;
 }
 
 .resume .resume-item ul {
   padding-left: 20px;
   text-align: justify;
+  color: #cbd5e1;
 }
 
 .resume .resume-item ul li {
@@ -671,6 +939,7 @@ button:focus {
   padding-bottom: 0;
 }
 
+/* High-tech glowing circuit node marker */
 .resume .resume-item::before {
   content: "";
   position: absolute;
@@ -679,29 +948,34 @@ button:focus {
   border-radius: 50px;
   left: -9px;
   top: 0;
-  background: #fff;
-  border: 2px solid #c770f0;
+  background: var(--bg-deep-navy);
+  border: 2.5px solid #00ff87;
+  box-shadow: 0 0 10px rgba(0, 255, 135, 0.8), 0 0 4px rgba(0, 225, 217, 0.9);
 }
 
 .like-item {
   padding-top: 10px !important;
   font-size: 1.1em !important;
-  font-family: sans-serif !important;
+  font-family: 'Fira Code', monospace !important;
 }
 
 .like-btn {
-  background-color: rgba(199, 112, 240, 0.15) !important;
-  border-color: rgba(199, 112, 240, 0.3) !important;
+  background-color: rgba(0, 225, 217, 0.08) !important;
+  border: 1px solid rgba(0, 225, 217, 0.3) !important;
+  color: #00e1d9 !important;
   padding: 0.25rem 0.98rem !important;
-  border-radius: 5px !important;
+  border-radius: 6px !important;
   line-height: 1.4 !important;
-  transition: 0.3s ease !important;
+  transition: all 0.35s ease !important;
+  box-shadow: inset 0 0 10px rgba(0, 225, 217, 0.05) !important;
 }
 
 .like-btn:hover {
   transform: translateY(-2px) !important;
-  background-color: rgba(199, 112, 240, 0.3) !important;
-  border-color: rgba(199, 112, 240, 0.5) !important;
+  background-color: rgba(0, 225, 217, 0.2) !important;
+  border-color: #00ff87 !important;
+  color: #00ff87 !important;
+  box-shadow: 0 0 16px rgba(0, 225, 217, 0.4) !important;
 }
 
 .animate-like {
@@ -709,6 +983,7 @@ button:focus {
   animation-fill-mode: forwards;
   animation-duration: 0.85s;
 }
+
 @keyframes likeAnimation {
   0% { transform: scale(1.5); }
   100% { transform: scale(1); }
@@ -717,21 +992,29 @@ button:focus {
 .fork-btn {
   font-size: 1.1em !important;
   padding-top: 10px !important;
+  font-family: 'Fira Code', monospace !important;
 }
 
 .fork-btn-inner {
   line-height: 1.4em !important;
-  background-color: rgba(199, 112, 240, 0.15) !important;
+  background-color: rgba(0, 225, 217, 0.08) !important;
+  border: 1px solid rgba(0, 225, 217, 0.3) !important;
+  color: #00e1d9 !important;
   padding: 0.25rem 1.1rem !important;
+  border-radius: 6px !important;
   vertical-align: middle !important;
   text-align: center !important;
+  transition: all 0.35s ease !important;
 }
 
 .fork-btn-inner:hover {
   transform: translateY(-2px) !important;
-  background-color: rgba(199, 112, 240, 0.3) !important;
-  border-color: rgba(199, 112, 240, 0.5) !important;
+  background-color: rgba(0, 225, 217, 0.2) !important;
+  border-color: #00ff87 !important;
+  color: #00ff87 !important;
+  box-shadow: 0 0 16px rgba(0, 225, 217, 0.4) !important;
 }
+
 .fork-btn-inner::after {
   display: none !important;
 }
@@ -746,15 +1029,16 @@ button:focus {
   padding: 10px 0;
 }
 
+/* Glowing High-Tech Circuit Line */
 .timeline-line {
   position: absolute;
   top: 15px;
   bottom: 15px;
   left: 24px;
   width: 4px;
-  background: linear-gradient(180deg, #c770f0 0%, #a650c7 50%, #623686 100%);
+  background: linear-gradient(180deg, #00e1d9 0%, #08c7d5 50%, #00ff87 100%);
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(199, 112, 240, 0.4);
+  box-shadow: 0 0 14px rgba(0, 225, 217, 0.65), 0 0 24px rgba(0, 255, 135, 0.35);
 }
 
 .timeline-item {
@@ -767,6 +1051,7 @@ button:focus {
   box-sizing: border-box;
 }
 
+/* High-Tech Circuit Node Dot */
 .timeline-dot {
   position: absolute;
   left: 4px;
@@ -774,39 +1059,43 @@ button:focus {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #0a0416;
-  border: 3px solid #c770f0;
+  background: var(--bg-deep-navy);
+  border: 3px solid #00e1d9;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #c770f0;
+  color: #00ff87;
   font-size: 1.15em;
   z-index: 2;
-  box-shadow: 0 0 14px rgba(199, 112, 240, 0.5);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 16px rgba(0, 225, 217, 0.65), inset 0 0 10px rgba(0, 255, 135, 0.25);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .timeline-item:hover .timeline-dot {
-  transform: scale(1.12);
-  box-shadow: 0 0 20px rgba(199, 112, 240, 0.85);
-  background: #15092a;
+  transform: scale(1.15);
+  box-shadow: 0 0 25px rgba(0, 255, 135, 0.85), 0 0 15px rgba(0, 225, 217, 0.95);
+  background: #08172e;
+  border-color: #00ff87;
+  color: #00e1d9;
 }
 
+/* Dark Navy Parchment Card with Glowing Cyber Border */
 .timeline-card {
-  background: rgba(12, 8, 24, 0.82);
-  border: 1px solid rgba(199, 112, 240, 0.3);
+  background: linear-gradient(160deg, rgba(9, 20, 38, 0.9) 0%, rgba(5, 12, 24, 0.95) 100%);
+  border: 1px solid rgba(0, 225, 217, 0.28);
   border-radius: 14px;
-  padding: 18px 24px;
-  box-shadow: 0 4px 18px rgba(119, 53, 136, 0.2);
-  backdrop-filter: blur(8px);
+  padding: 20px 26px;
+  box-shadow: 0 6px 22px rgba(2, 6, 14, 0.55), inset 0 1px 0 rgba(0, 225, 217, 0.12);
+  backdrop-filter: blur(10px);
   text-align: left;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
 }
 
 .timeline-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(199, 112, 240, 0.35);
-  border-color: rgba(199, 112, 240, 0.7);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0, 10, 25, 0.75), 0 0 22px rgba(0, 225, 217, 0.35), 0 0 10px rgba(0, 255, 135, 0.25);
+  border-color: rgba(0, 255, 135, 0.7);
 }
 
 .timeline-header-row {
@@ -823,12 +1112,14 @@ button:focus {
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 2px;
+  font-family: 'Cinzel', 'Playfair Display', serif !important;
 }
 
 .timeline-company {
   font-size: 1.05em;
   font-weight: 600;
-  color: #c770f0;
+  color: #00e1d9;
+  font-family: 'Fira Code', monospace !important;
 }
 
 .timeline-meta {
@@ -842,47 +1133,48 @@ button:focus {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: rgba(199, 112, 240, 0.12);
-  border: 1px solid rgba(199, 112, 240, 0.3);
-  color: #e3b1f7;
+  background: rgba(0, 225, 217, 0.08);
+  border: 1px solid rgba(0, 225, 217, 0.3);
+  color: #a7f3d0;
   font-size: 0.84em;
   padding: 4px 12px;
   border-radius: 20px;
   font-weight: 500;
+  font-family: 'Fira Code', monospace !important;
 }
 
 .timeline-desc {
-  color: #d1d5db;
+  color: #cbd5e1;
   font-size: 0.95em;
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
   padding-left: 20px;
 }
 
 .timeline-desc li {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
-/* ----------------------- */
-/* Education Section       */
-/* ----------------------- */
+/* ----------------- */
+/* Education Section */
+/* ----------------- */
 .education-card {
-  background: rgba(12, 8, 24, 0.82);
-  border: 1px solid rgba(199, 112, 240, 0.3);
+  background: linear-gradient(160deg, rgba(9, 20, 38, 0.9) 0%, rgba(5, 12, 24, 0.95) 100%);
+  border: 1px solid rgba(0, 225, 217, 0.28);
   border-radius: 16px;
   padding: 25px 30px;
-  box-shadow: 0 4px 20px rgba(119, 53, 136, 0.2);
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
+  box-shadow: 0 6px 24px rgba(2, 6, 14, 0.55), inset 0 1px 0 rgba(0, 225, 217, 0.12);
+  backdrop-filter: blur(10px);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
   max-width: 920px;
   margin: 20px auto;
   text-align: left;
 }
 
 .education-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(199, 112, 240, 0.4);
-  border-color: rgba(199, 112, 240, 0.7);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0, 10, 25, 0.75), 0 0 24px rgba(0, 225, 217, 0.35), 0 0 10px rgba(0, 255, 135, 0.25);
+  border-color: rgba(0, 255, 135, 0.7);
 }
 
 .education-logo-container {
@@ -899,7 +1191,8 @@ button:focus {
   background: #ffffff;
   padding: 8px;
   border-radius: 16px;
-  box-shadow: 0 0 20px rgba(199, 112, 240, 0.35);
+  border: 1px solid rgba(0, 225, 217, 0.3);
+  box-shadow: 0 0 20px rgba(0, 225, 217, 0.3);
 }
 
 .education-course-tags {
@@ -910,10 +1203,10 @@ button:focus {
 }
 
 .education-course-tag {
-  background: rgba(199, 112, 240, 0.08);
-  border: 1px solid rgba(199, 112, 240, 0.28);
-  color: #e3b1f7;
-  padding: 4px 11px;
+  background: rgba(0, 225, 217, 0.07);
+  border: 1px solid rgba(0, 225, 217, 0.28);
+  color: #a7f3d0;
+  padding: 4px 12px;
   border-radius: 14px;
   font-size: 0.83em;
   font-weight: 500;
@@ -921,14 +1214,15 @@ button:focus {
   align-items: center;
   gap: 6px;
   transition: all 0.25s ease;
+  font-family: 'Fira Code', monospace !important;
 }
 
 .education-course-tag:hover {
-  background: rgba(199, 112, 240, 0.18);
-  border-color: rgba(199, 112, 240, 0.6);
+  background: rgba(0, 225, 217, 0.18);
+  border-color: #00ff87;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(199, 112, 240, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 225, 217, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -955,18 +1249,18 @@ button:focus {
   }
 }
 
-/* ----------------------- */
-/* Certificates Section    */
-/* ----------------------- */
+/* -------------------- */
+/* Certificates Section */
+/* -------------------- */
 .certificate-card {
-  background: rgba(12, 8, 24, 0.92) !important;
-  border: 1px solid rgba(199, 112, 240, 0.3) !important;
+  background: linear-gradient(160deg, rgba(9, 20, 38, 0.92) 0%, rgba(5, 12, 24, 0.96) 100%) !important;
+  border: 1px solid rgba(0, 225, 217, 0.28) !important;
   border-radius: 16px !important;
-  box-shadow: 0 6px 24px rgba(119, 53, 136, 0.2) !important;
-  color: white !important;
+  box-shadow: 0 8px 24px rgba(2, 6, 14, 0.6), inset 0 1px 0 rgba(0, 225, 217, 0.12) !important;
+  color: #f1f5f9 !important;
   opacity: 1 !important;
-  backdrop-filter: blur(10px) !important;
-  transition: all 0.35s ease !important;
+  backdrop-filter: blur(14px) !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
   height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
@@ -975,9 +1269,12 @@ button:focus {
 }
 
 .certificate-card:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: 0 10px 32px rgba(199, 112, 240, 0.45) !important;
-  border-color: rgba(199, 112, 240, 0.75) !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 
+    0 16px 36px rgba(0, 10, 25, 0.8),
+    0 0 25px rgba(0, 225, 217, 0.38),
+    0 0 12px rgba(0, 255, 135, 0.28) !important;
+  border-color: rgba(0, 255, 135, 0.75) !important;
 }
 
 .certificate-img-container {
@@ -991,13 +1288,13 @@ button:focus {
   height: 200px;
   object-fit: cover;
   border-radius: 12px;
-  border: 1px solid rgba(199, 112, 240, 0.2);
-  transition: transform 0.3s ease;
+  border: 1px solid rgba(0, 225, 217, 0.2);
+  transition: transform 0.35s ease;
   background: #ffffff;
 }
 
 .certificate-card:hover .certificate-img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .cert-filter-container {
@@ -1009,23 +1306,25 @@ button:focus {
 }
 
 .cert-filter-btn {
-  background: rgba(199, 112, 240, 0.07);
-  color: #e3b1f7;
-  border: 1.5px solid rgba(199, 112, 240, 0.4);
+  background: rgba(0, 225, 217, 0.06);
+  color: #cbd5e1;
+  border: 1.5px solid rgba(0, 225, 217, 0.3);
   padding: 8px 22px;
   border-radius: 30px;
   font-weight: 600;
-  font-size: 0.95em;
+  font-size: 0.92em;
   transition: all 0.3s ease;
   cursor: pointer;
+  font-family: 'Fira Code', monospace !important;
+  letter-spacing: 0.3px;
 }
 
 .cert-filter-btn:hover,
 .cert-filter-btn.active {
-  background: #623686 !important;
-  color: #ffffff !important;
-  box-shadow: 0 0 18px rgba(199, 112, 240, 0.55) !important;
-  border-color: #c770f0 !important;
+  background: linear-gradient(135deg, #00e1d9 0%, #00ff87 100%) !important;
+  color: #030813 !important;
+  box-shadow: 0 0 20px rgba(0, 225, 217, 0.6), 0 0 32px rgba(0, 255, 135, 0.35) !important;
+  border-color: #00ff87 !important;
 }
 
 .cert-section-header {
@@ -1037,6 +1336,21 @@ button:focus {
   font-size: 1.65em;
   font-weight: 700;
   color: #ffffff;
-  border-bottom: 1px solid rgba(199, 112, 240, 0.22);
+  border-bottom: 1px solid rgba(0, 225, 217, 0.25);
   padding-bottom: 12px;
+}
+
+.cert-count-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.52em;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(0, 225, 217, 0.1);
+  color: #00e1d9;
+  border: 1px solid rgba(0, 225, 217, 0.28);
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
 }

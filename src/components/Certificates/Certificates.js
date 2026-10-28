@@ -2,315 +2,364 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import CertificateCards from "./CertificateCards";
 import Particle from "../Particle";
-import { SiMicrosoftazure, SiGoogle } from "react-icons/si";
-import { AiOutlineTrophy } from "react-icons/ai";
-import { TbCertificate } from "react-icons/tb";
-import { FaBriefcase, FaMedal } from "react-icons/fa";
+import { FaLaptopCode, FaUserTie, FaServer, FaRobot } from "react-icons/fa";
+import { SiUdemy, SiCoursera } from "react-icons/si";
 
-// Section 1 Images
-import ai103Img from "../../Assets/Certificates/ai-103.png";
-import evaInternImg from "../../Assets/Certificates/eva-intern.png";
-import evaHackathonImg from "../../Assets/Certificates/eva-hackathon-top20.jpg";
-import orangeHackathonImg from "../../Assets/Certificates/orange-hackathon-top5.png";
-import depiVoucherImg from "../../Assets/Certificates/depi-top5-voucher.png";
-import depiTeamleaderImg from "../../Assets/Certificates/depi-teamleader.png";
-import depiHonorShieldImg from "../../Assets/Certificates/depi-honor-shield.jpg";
-import depiCompletionImg from "../../Assets/Certificates/depi-completion.png";
-import depiBusinessEnglishImg from "../../Assets/Certificates/depi-business-english.png";
-import deeplearningRagImg from "../../Assets/Certificates/deeplearning-rag.png";
-import mlopsPractitionerImg from "../../Assets/Certificates/mlops-practitioner.png";
-import ntiNlpImg from "../../Assets/Certificates/nti-nlp.png";
+// ── Brand Icons ─────────────────────────────────────────────────────────────
+import programmingAdvicesImg from "../../Assets/programmingadvices.png";
 
-// Section 2 Images - MS Learn Paths
-import msLearnGenAiImg from "../../Assets/Certificates/ms-learn-genai.png";
-import msLearnAgentsImg from "../../Assets/Certificates/ms-learn-agents.png";
-import msLearnNlpImg from "../../Assets/Certificates/ms-learn-nlp.png";
-import msLearnCvImg from "../../Assets/Certificates/ms-learn-cv.png";
+// ── Foundation Certs ───────────────────────────────────────────────
+import cert05AlgL2 from "../../Assets/Certificates/certificate-of-completion-for-algorithms-problem-solving-level-2_page-0001.jpg";
+import cert06CppL2 from "../../Assets/Certificates/certificate-of-completion-for-introduction-to-programming-using-c-level-2_page-0001.jpg";
+import cert07AlgL3 from "../../Assets/Certificates/certificate-of-completion-for-algorithms-problem-solving-level-3_page-0001.jpg";
+import cert08AlgL4 from "../../Assets/Certificates/certificate-of-completion-for-08-algorithms-problem-solving-level-4_page-0001.jpg";
+import cert09FoundL2 from "../../Assets/Certificates/certificate-of-completion-for-09-foundations-level-2_page-0001.jpg";
+import cert10OopConc from "../../Assets/Certificates/certificate-of-completion-for-10-oop-as-it-should-be-concepts_page-0001.jpg";
+import cert11OopApp from "../../Assets/Certificates/certificate-of-completion-for-11-oop-as-it-should-be-applications_page-0001.jpg";
+import cert12DsL1 from "../../Assets/Certificates/certificate-of-completion-for-12-data-structures-level1_page-0001.jpg";
+import cert13AlgL5 from "../../Assets/Certificates/certificate-of-completion-for-13-algorithms-problem-solving-level-5_page-0001.jpg";
 
-// Section 2 Images - Programs & Specialized
-import gdgInstructorImg from "../../Assets/Certificates/gdg-instructor.png";
-import zewailCityImg from "../../Assets/Certificates/zewail-city.png";
-import introLlmsImg from "../../Assets/Certificates/intro-llms.png";
-import pineconeVdbImg from "../../Assets/Certificates/pinecone-vdb.png";
-import mlAlgorithms365Img from "../../Assets/Certificates/365-ml-algorithms.png";
-import mlPreprocessing365Img from "../../Assets/Certificates/365-ml-preprocessing.png";
+// ── Specialized Engineering Certs ────────────────────────────────────
+import cert14CsharpL1 from "../../Assets/Certificates/certificate-of-completion-for-14-c-level-1_page-0001.jpg";
+import cert15DbSqlL1 from "../../Assets/Certificates/certificate-of-completion-for-15-database-level-1-sql-concepts-and-practice_page-0001.jpg";
+import cert16OopCsharp from "../../Assets/Certificates/certificate-of-completion-for-16-oop-as-it-should-be-in-c_page-0001.jpg";
+import cert17DbSqlProj from "../../Assets/Certificates/certificate-of-completion-for-17-database-sql-projects-practice_page-0001.jpg";
+import cert18CsharpAdo from "../../Assets/Certificates/certificate-of-completion-for-18-c-database-connectivity_page-0001.jpg";
+import cert19FullProject from "../../Assets/Certificates/certificate-of-completion-for-19-full-real-project_page-0001.jpg";
+import cert20CsharpL2 from "../../Assets/Certificates/certificate-of-completion-for-20-c-programming-level-2_page-0001.jpg";
+import cert21DbTsql from "../../Assets/Certificates/certificate-of-completion-for-21-database-level2-concepts-t-sql_page-0001.jpg";
+import cert22DsL2Csharp from "../../Assets/Certificates/certificate-of-completion-for-22-data-structures-level-2-in-c_page-0001.jpg";
+import cert24WinServices from "../../Assets/Certificates/certificate-of-completion-for-24-windows-services_page-0001.jpg";
+import certHtmlDeepDive from "../../Assets/Certificates/certificate-of-completion-for-html-deep-dive_page-0001.jpg";
+import certCssDeepDive from "../../Assets/Certificates/certificate-of-completion-for-css-foundations-deep-dive_page-0001.jpg";
+import certJsEssentials from "../../Assets/Certificates/certificate-of-completion-for-start-coding-with-javascript-beginner-s-essentials-guide_page-0001.jpg";
+import certSolidPrinciples from "../../Assets/Certificates/certificate-of-completion-for-solid-principles_page-0001.jpg";
+import certRestfulApi from "../../Assets/Certificates/certificate-of-completion-for-introduction-to-restful-api_page-0001.jpg";
+import certJwtAspNet from "../../Assets/Certificates/certificate-of-completion-for-secure-your-apis-jwt-roles-policies-in-asp-net-core_page-0001.jpg";
+import certAngular from "../../Assets/Certificates/angular.jpg";
+import certTypescript from "../../Assets/Certificates/typescript.jpg";
 
-// Section 3 Images
-import datacampSupervisedImg from "../../Assets/Certificates/datacamp-supervised-learning.png";
-import datacampTreeImg from "../../Assets/Certificates/datacamp-tree-models.png";
-import datacampStatsImg from "../../Assets/Certificates/datacamp-statistics.png";
-import oopPythonImg from "../../Assets/Certificates/oop-python.png";
-import databaseFundamentalsImg from "../../Assets/Certificates/database-fundamentals.png";
-import introGitImg from "../../Assets/Certificates/intro-git.png";
-import intermediateGitImg from "../../Assets/Certificates/intermediate-git.png";
-import containerizationImg from "../../Assets/Certificates/containerization.png";
-import cloudComputingImg from "../../Assets/Certificates/cloud-computing.png";
+// ── Business & Soft Skills Certs ─────────────────────────────────────────────
+import certMcKinseyForward from "../../Assets/Certificates/Forward20261030-20-q5p7an_page-0001.jpg";
+import certLearnHowToLearn from "../../Assets/Certificates/learn-how-to-learn.jpg";
+
+// ── AI Certs ─────────────────────────────────────────────────────────────
+import genAI from "../../Assets/Certificates/introduction-to-generative-AI-for-software-development.jpg";
 
 function Certificates() {
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const section1Featured = [
+  // ── Shared Issuer Logos ───────────────────────────────────────────────────
+  const paIcon = (
+    <img
+      src={programmingAdvicesImg}
+      alt="ProgrammingAdvices"
+      style={{
+        width: "24px",
+        height: "24px",
+        objectFit: "contain",
+        borderRadius: "50%",
+      }}
+    />
+  );
+
+  // ── 1. Core Foundations (certs 5 – 13) ────────────────────────────────────
+  const foundationCerts = [
     {
-      img: ai103Img,
-      title: "Azure AI Apps and Agents Developer Associate (AI-103)",
-      issuer: "Microsoft",
-      date: "Oct 2026",
-      link: "https://learn.microsoft.com/en-us/users/karimehab-6229/credentials/fd5c204ef53b9e9e",
-      icon: <SiMicrosoftazure color="#0089D6" />,
+      img: cert05AlgL2,
+      title: "Algorithms & Problem-Solving – Level 2",
+      issuer: "ProgrammingAdvices",
+      date: "Jan 2025",
       description:
-        "Official Microsoft certification validating expertise in designing and implementing AI apps and agentic workflows using Azure AI Foundry, Azure AI Search, Document Intelligence, and OpenAI / LLM frameworks.",
+        "Strengthened algorithmic thinking and problem-solving skills through structured Level 2 challenges.",
+      icon: paIcon,
     },
     {
-      img: evaInternImg,
-      title: "AI Engineering Internship",
-      issuer: "EVA Cosmetics",
-      date: "Jul 2026 – Sep 2026",
-      icon: <FaBriefcase color="#c770f0" />,
+      img: cert06CppL2,
+      title: "Introduction to Programming Using C++ – Level 2",
+      issuer: "ProgrammingAdvices",
+      date: "Jan 2025",
       description:
-        "Completed AI Engineering internship building an explainable candidate search and ranking ATS platform, reducing screening time from days to seconds with 95.56% Precision@5.",
+        "Advanced core C++ programming concepts including control flow, functions, and arrays.",
+      icon: paIcon,
     },
     {
-      img: evaHackathonImg,
-      title: "Top 20 Finalist — EVA AI Hackathon",
-      issuer: "EVA Cosmetics",
-      icon: <AiOutlineTrophy color="#F59E0B" />,
+      img: cert07AlgL3,
+      title: "Algorithms & Problem Solving – Level 3",
+      issuer: "ProgrammingAdvices",
+      date: "Jan 2025",
       description:
-        "Top 20 finalist among 1,500+ participants nationwide in the EVA AI Hackathon, earning an AI Engineering internship at EVA Cosmetics.",
+        "Mastered intermediate algorithmic techniques including recursion and sorting in a competitive context.",
+      icon: paIcon,
     },
     {
-      img: orangeHackathonImg,
-      title: "Top 5 Winner — Orange AI Hackathon",
-      issuer: "Orange Egypt",
-      icon: <AiOutlineTrophy color="#F59E0B" />,
+      img: cert08AlgL4,
+      title: "Algorithms & Problem Solving – Level 4",
+      issuer: "ProgrammingAdvices",
+      date: "Apr 2025",
       description:
-        "Ranked Top 5 (4th Place) among 35+ competing teams (with up to 5 members each) as a solo developer with the AI First-Aid Assistant project.",
+        "Tackled advanced algorithmic challenges covering dynamic programming and graph traversal.",
+      icon: paIcon,
     },
     {
-      img: depiVoucherImg,
-      title: "Top 5 National Winners — Microsoft Exam Voucher",
-      issuer: "DEPI & Microsoft",
-      icon: <AiOutlineTrophy color="#F59E0B" />,
+      img: cert09FoundL2,
+      title: "Foundations – Level 2",
+      issuer: "ProgrammingAdvices",
+      date: "Mar 2025",
       description:
-        "Awarded Microsoft Exam Voucher for leading a 5-member team that achieved Top 5 ranking nationally across Egypt in the Machine Learning track.",
+        "Deepened foundational programming knowledge with a focus on problem decomposition and code quality.",
+      icon: paIcon,
     },
     {
-      img: depiTeamleaderImg,
-      title: "Leadership Excellence — Outstanding Team Leader",
-      issuer: "Digital Egypt Pioneers Initiative (DEPI)",
-      icon: <FaMedal color="#F59E0B" />,
+      img: cert10OopConc,
+      title: "OOP as It Should Be – Concepts",
+      issuer: "ProgrammingAdvices",
+      date: "Mar 2025",
       description:
-        "Awarded Leadership Excellence after being selected as one of the top outstanding Team Leaders throughout the entire 6-month DEPI training program.",
+        "Covered the core pillars of object-oriented programming including encapsulation, inheritance, and polymorphism.",
+      icon: paIcon,
     },
     {
-      img: depiHonorShieldImg,
-      title: "Honor Shield & Award of Excellence",
-      issuer: "Global Knowledge",
-      icon: <AiOutlineTrophy color="#F59E0B" />,
+      img: cert11OopApp,
+      title: "OOP as It Should Be – Applications",
+      issuer: "ProgrammingAdvices",
+      date: "Apr 2025",
       description:
-        "Award of honor for excellence and leading our team to achieve top national ranking across DEPI Machine Learning track teams.",
+        "Applied OOP principles to real-world software design patterns and practical application development.",
+      icon: paIcon,
     },
     {
-      img: depiCompletionImg,
-      title: "Machine Learning Engineer Track Completion",
-      issuer: "DEPI — Ministry of Communications (MCIT)",
-      date: "Apr 2024 – Oct 2024",
-      icon: <TbCertificate color="#c770f0" />,
+      img: cert12DsL1,
+      title: "Data Structures – Level 1",
+      issuer: "ProgrammingAdvices",
+      date: "Apr 2025",
       description:
-        "Graduated from the Digital Egypt Pioneers Initiative (DEPI) Machine Learning track after 6 months of comprehensive training in ML, Deep Learning, NLP, CV, and Azure.",
+        "Built a solid understanding of fundamental data structures including linked lists, stacks, and queues.",
+      icon: paIcon,
     },
     {
-      img: depiBusinessEnglishImg,
-      title: "Business English Track Certificate",
-      issuer: "DEPI & Berlitz",
-      icon: <TbCertificate color="#c770f0" />,
+      img: cert13AlgL5,
+      title: "Algorithms & Problem Solving – Level 5",
+      issuer: "ProgrammingAdvices",
+      date: "Apr 2025",
       description:
-        "Completed professional Business English communication track as part of the DEPI scholarship program.",
+        "Completed the highest algorithms level covering complex data structures and competitive programming strategies.",
+      icon: paIcon,
+    },
+  ];
+
+  // ── 2. Business & Soft Skills ──────────────────────────────────────────────
+  const softSkillsCerts = [
+    {
+      img: certMcKinseyForward,
+      title: "McKinsey Forward Program",
+      issuer: "McKinsey.org",
+      date: "Jun 2026",
+      description:
+        "Completed McKinsey's competitive Forward program, developing problem-solving, communication, and future-of-work skills.",
+      icon: <FaUserTie color="#38bdf8" />,
     },
     {
-      img: deeplearningRagImg,
-      title: "Retrieval-Augmented Generation (RAG)",
-      issuer: "DeepLearning.AI",
+      img: certLearnHowToLearn,
+      title: "Learning How to Learn",
+      issuer: "Coursera / Deep Teaching Solutions",
       date: "May 2026",
-      link: "https://www.coursera.org/account/accomplishments/verify/QJSVX0QD35VT",
-      icon: <TbCertificate color="#c770f0" />,
+      link: "https://coursera.org/verify/R5D4MZHZH1GB",
       description:
-        "Hands-on implementation of vector databases, hybrid dense/sparse retrieval, query translation, and automated evaluation using RAGAS.",
+        "Applied neuroscience-backed mental tools and techniques to accelerate learning and master difficult subjects.",
+      icon: <SiCoursera color="#0056D2" size={24} />,
+    },
+  ];
+
+  // ── 3. Specialized Engineering (14 +) ─────────────────────────────────────
+  const specializedCerts = [
+    {
+      img: cert14CsharpL1,
+      title: "C# – Level 1",
+      issuer: "ProgrammingAdvices",
+      date: "May 2025",
+      description:
+        "Gained a solid grounding in C# syntax, types, and .NET fundamentals through a structured graduation course.",
+      icon: paIcon,
     },
     {
-      img: mlopsPractitionerImg,
-      title: "MLOps Practitioner Certificate",
-      issuer: "MLOps MENA",
-      date: "Oct 2026",
-      link: "https://mlopsmena.com/tools/verify-certificate/?code=MLOPS-01-2026-00084",
-      icon: <TbCertificate color="#0089D6" />,
+      img: cert15DbSqlL1,
+      title: "Database Level 1 – SQL Concepts & Practice",
+      issuer: "ProgrammingAdvices",
+      date: "Jun 2025",
       description:
-        "Practical implementation of machine learning operations, model deployment, monitoring pipelines, and CI/CD for AI systems.",
+        "Mastered foundational SQL concepts including DDL, DML, and relational database design principles.",
+      icon: paIcon,
     },
     {
-      img: ntiNlpImg,
-      title: "NLP & Generative AI Summer Training",
-      issuer: "National Telecommunications Institute (NTI)",
+      img: cert16OopCsharp,
+      title: "OOP as It Should Be in C#",
+      issuer: "ProgrammingAdvices",
+      date: "Jun 2025",
+      description:
+        "Applied object-oriented programming patterns and best practices specifically in the C# language ecosystem.",
+      icon: paIcon,
+    },
+    {
+      img: cert17DbSqlProj,
+      title: "Database – SQL Projects & Practice",
+      issuer: "ProgrammingAdvices",
       date: "Jul 2025",
-      icon: <TbCertificate color="#c770f0" />,
       description:
-        "Intensive training in Natural Language Processing, LLMs, RAG, and Agentic AI with hands-on applications using Hugging Face, crewAI, and LangChain.",
-    },
-  ];
-
-  const section2Specialized = [
-    {
-      img: msLearnGenAiImg,
-      title: "Develop Generative AI Apps in Azure",
-      issuer: "Microsoft Learn",
-      link: "https://learn.microsoft.com/en-us/users/karimehab-6229/achievements/qlxlckge",
-      icon: <SiMicrosoftazure color="#0089D6" />,
+        "Practiced real-world SQL through hands-on database projects covering advanced queries and stored procedures.",
+      icon: paIcon,
     },
     {
-      img: msLearnAgentsImg,
-      title: "Develop AI Agents on Azure",
-      issuer: "Microsoft Learn",
-      link: "https://learn.microsoft.com/en-us/users/karimehab-6229/achievements/y4uuq7br",
-      icon: <SiMicrosoftazure color="#0089D6" />,
+      img: cert18CsharpAdo,
+      title: "C# & Database Connectivity (ADO.NET)",
+      issuer: "ProgrammingAdvices",
+      date: "Jul 2025",
+      description:
+        "Integrated C# applications with SQL Server databases using ADO.NET for robust data access and manipulation.",
+      icon: paIcon,
     },
     {
-      img: msLearnNlpImg,
-      title: "Develop Natural Language Solutions in Azure",
-      issuer: "Microsoft Learn",
-      link: "https://learn.microsoft.com/en-us/users/karimehab-6229/achievements/h2g9gjx8",
-      icon: <SiMicrosoftazure color="#0089D6" />,
-    },
-    {
-      img: msLearnCvImg,
-      title: "Develop Computer Vision Solutions with Microsoft Foundry",
-      issuer: "Microsoft Learn",
-      link: "https://learn.microsoft.com/en-us/users/karimehab-6229/achievements/u7lvez73",
-      icon: <SiMicrosoftazure color="#0089D6" />,
-    },
-    {
-      img: gdgInstructorImg,
-      title: "Head of AI & Technical Instructor",
-      issuer: "Google Developer Groups (Benha University)",
-      date: "2025 – 2026",
-      icon: <SiGoogle color="#4285F4" />,
-    },
-    {
-      img: zewailCityImg,
-      title: "Zewail City Technical Training Program",
-      issuer: "Zewail City of Science & Technology",
-      link: "https://www.checkcertificates.com/certifications/?csrfmiddlewaretoken=2qupb00ZtjUK04xpHIS61hTDAPRLldIOWIsgN60xUePuGvkLz6EyYrxE05zQLxNs&peko=ZIN0482",
-      icon: <TbCertificate color="#10B981" />,
-    },
-    {
-      img: introLlmsImg,
-      title: "Introduction to Large Language Models (LLMs)",
-      issuer: "365 Data Science",
+      img: cert19FullProject,
+      title: "Full Real Project – DVLD",
+      issuer: "ProgrammingAdvices",
       date: "Nov 2025",
-      link: "https://learn.365datascience.com/certificates/CC-AF6585B1BB/",
-      icon: <TbCertificate color="#6366F1" />,
+      description:
+        "Developed a complete Driver & Vehicle Licensing Department system applying full-stack C# and SQL skills.",
+      icon: paIcon,
     },
     {
-      img: pineconeVdbImg,
-      title: "Vector Databases with Pinecone",
-      issuer: "DataCamp",
-      date: "May 2026",
-      link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/10fa7c3cab1cbe3956e040654e274775228f6103",
-      icon: <TbCertificate color="#0089D6" />,
+      img: cert20CsharpL2,
+      title: "C# Programming – Level 2",
+      issuer: "ProgrammingAdvices",
+      date: "Nov 2025",
+      description:
+        "Advanced C# proficiency covering LINQ, generics, delegates, and modern .NET programming techniques.",
+      icon: paIcon,
     },
     {
-      img: mlAlgorithms365Img,
-      title: "Machine Learning Algorithms",
-      issuer: "365 Data Science",
-      date: "Nov 2024",
-      link: "https://learn.365datascience.com/certificates/CC-3DECEA8270/",
-      icon: <TbCertificate color="#F59E0B" />,
+      img: cert21DbTsql,
+      title: "Database Level 2 – Concepts & T-SQL",
+      issuer: "ProgrammingAdvices",
+      date: "Nov 2025",
+      description:
+        "Deepened SQL expertise with T-SQL advanced features including views, triggers, and performance optimization.",
+      icon: paIcon,
     },
     {
-      img: mlPreprocessing365Img,
-      title: "Machine Learning Preprocessing",
-      issuer: "365 Data Science",
-      date: "Nov 2024",
-      link: "https://learn.365datascience.com/certificates/CC-89FD015503/",
-      icon: <TbCertificate color="#F59E0B" />,
-    },
-  ];
-
-  const section3Mini = [
-    {
-      img: datacampSupervisedImg,
-      title: "Supervised Learning with scikit-learn",
-      issuer: "DataCamp",
-      date: "Dec 2024",
-      link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/f9c934df44dcb677686da63a04cf8be25d7e991d",
-      icon: <TbCertificate color="#03EF62" />,
-    },
-    {
-      img: datacampTreeImg,
-      title: "Tree-Based Models in Python",
-      issuer: "DataCamp",
-      date: "Feb 2025",
-      link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/ea2cc026d7f17507ef1c427e926b6523c9c14910",
-      icon: <TbCertificate color="#03EF62" />,
-    },
-    {
-      img: datacampStatsImg,
-      title: "Introduction to Statistics in Python",
-      issuer: "DataCamp",
-      date: "Dec 2024",
-      link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/7b866eb026655105779b1dfd5bd7fae43607165a",
-      icon: <TbCertificate color="#03EF62" />,
-    },
-    {
-      img: oopPythonImg,
-      title: "Object-Oriented Programming in Python",
-      issuer: "DataCamp",
+      img: cert22DsL2Csharp,
+      title: "Data Structures Level 2 in C#",
+      issuer: "ProgrammingAdvices",
       date: "Dec 2025",
-      link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/13ecac4991a19f90af7552368ea07704e3c9b222",
-      icon: <TbCertificate color="#03EF62" />,
+      description:
+        "Implemented advanced data structures such as trees, heaps, and graphs in C# for high-performance applications.",
+      icon: paIcon,
     },
     {
-      img: databaseFundamentalsImg,
-      title: "Fundamentals of Databases",
-      issuer: "Mahara-Tech",
-      link: "https://maharatech.gov.eg/mod/customcert/verify_certificate.php?code=4VT7Dqrks7&qrcode=1",
-      icon: <TbCertificate color="#0089D6" />,
+      img: cert24WinServices,
+      title: "Windows Services",
+      issuer: "ProgrammingAdvices",
+      date: "Dec 2025",
+      description:
+        "Designed and deployed background Windows Services in C# for automated, long-running server-side tasks.",
+      icon: paIcon,
     },
     {
-      img: introGitImg,
-      title: "Introduction to Git",
-      issuer: "DataCamp",
-      date: "Jun 2026",
-      link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/10e00a5009cca74d899711d3ddab37440b03a248?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa",
-      icon: <TbCertificate color="#F05032" />,
+      img: certSolidPrinciples,
+      title: "SOLID Principles",
+      issuer: "ProgrammingAdvices",
+      date: "Jan 2026",
+      description:
+        "Studied the five SOLID design principles to write maintainable, scalable, and loosely coupled software.",
+      icon: paIcon,
     },
     {
-      img: intermediateGitImg,
-      title: "Intermediate Git",
-      issuer: "DataCamp",
-      date: "Jun 2026",
-      link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/276f2346ff57432a3aef8496dbe269642a335867",
-      icon: <TbCertificate color="#F05032" />,
+      img: certRestfulApi,
+      title: "Introduction to RESTful API",
+      issuer: "ProgrammingAdvices",
+      date: "Jan 2026",
+      description:
+        "Understood REST architectural principles and learned to design clean, stateless HTTP API endpoints.",
+      icon: paIcon,
     },
     {
-      img: containerizationImg,
-      title: "Containerization & Virtualization",
-      issuer: "DataCamp",
+      img: certJwtAspNet,
+      title: "Secure Your APIs: JWT, Roles & Policies in ASP.NET Core",
+      issuer: "ProgrammingAdvices",
+      date: "Mar 2026",
+      description:
+        "Implemented JWT-based authentication and role/policy authorization in ASP.NET Core Web APIs.",
+      icon: paIcon,
+    },
+    {
+      img: certHtmlDeepDive,
+      title: "HTML – Deep Dive",
+      issuer: "ProgrammingAdvices",
+      date: "Feb 2026",
+      description:
+        "Explored advanced HTML semantics, accessibility best practices, and modern document structuring techniques.",
+      icon: paIcon,
+    },
+    {
+      img: certCssDeepDive,
+      title: "CSS Foundations Deep Dive",
+      issuer: "ProgrammingAdvices",
+      date: "Mar 2026",
+      description:
+        "Mastered CSS layout systems including Flexbox and Grid along with responsive design and animation fundamentals.",
+      icon: paIcon,
+    },
+    {
+      img: certJsEssentials,
+      title: "Start Coding with JavaScript: Beginner's Essentials Guide",
+      issuer: "ProgrammingAdvices",
+      date: "Apr 2026",
+      description:
+        "Covered JavaScript core concepts including variables, functions, DOM manipulation, and event handling.",
+      icon: paIcon,
+    },
+    {
+      img: certTypescript,
+      title: "Understanding TypeScript",
+      issuer: "Udemy",
+      date: "May 2026",
+      link: "https://ude.my/UC-2313856e-e956-4b31-abe9-1f5c6bd3a7ea",
+      description:
+        "Built strong TypeScript proficiency covering types, interfaces, generics, and integration with modern frameworks.",
+      icon: <SiUdemy color="#A435F0" size={24} />,
+    },
+    {
+      img: certAngular,
+      title: "Angular – The Complete Guide",
+      issuer: "Udemy",
       date: "Jul 2026",
-      link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/ae051f460b8557427c68712ea0396e505d309742?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa",
-      icon: <TbCertificate color="#0089D6" />,
-    },
-    {
-      img: cloudComputingImg,
-      title: "Understanding Cloud Computing",
-      issuer: "DataCamp",
-      date: "Feb 2025",
-      link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/96b399e28d32e2a1f017ad7781ff7c241ab2ccee",
-      icon: <TbCertificate color="#0089D6" />,
+      link: "https://ude.my/UC-58c9df4a-3d18-462d-a540-edaac558dcd1",
+      description:
+        "Completed a comprehensive 56-hour Angular course covering components, services, RxJS, routing, and NgRx.",
+      icon: <SiUdemy color="#A435F0" size={24} />,
     },
   ];
 
-  const showSection1 = activeFilter === "all" || activeFilter === "featured";
-  const showSection2 = activeFilter === "all" || activeFilter === "specialized";
-  const showSection3 = activeFilter === "all" || activeFilter === "mini";
+  // ── 4. AI ─────────────────────────────────────────────────────────────
+  const aiCerts = [
+    {
+      img: genAI,
+      title: "Introduction to Generative AI for Software Development",
+      issuer: "Coursera / DeepLearning.AI",
+      date: "Nov 2026",
+      link: "https://www.coursera.org/account/accomplishments/certificate/165O8V2FHYXZ",
+      description:
+        "Applied Large Language Models (LLMs) to enhance software development through AI-assisted coding, prompting, and performance analysis.",
+      icon: <SiCoursera color="#0056D2" size={24} />,
+    },
+  ];
+
+  const showFoundation =
+    activeFilter === "all" || activeFilter === "foundation";
+  const showSpecialized =
+    activeFilter === "all" || activeFilter === "specialized";
+  const showSoftSkills =
+    activeFilter === "all" || activeFilter === "softskills";
+  const showAI = activeFilter === "all" || activeFilter === "ai";
 
   return (
     <Container fluid className="project-section">
@@ -319,8 +368,17 @@ function Certificates() {
         <h1 className="project-heading">
           Certifications &amp; <strong className="purple">Achievements</strong>
         </h1>
-        <p style={{ color: "white" }}>
-          Verified credentials, competition awards, and specialized technical milestones.
+        <p
+          style={{
+            color: "#cbd5e1",
+            fontSize: "1.02em",
+            textAlign: "center",
+            maxWidth: "750px",
+            margin: "0 auto 30px auto",
+          }}
+        >
+          Verified credentials, foundational engineering paths, and specialized
+          technical milestones.
         </p>
 
         {/* Filter Navigation Buttons */}
@@ -329,38 +387,61 @@ function Certificates() {
             className={`cert-filter-btn ${activeFilter === "all" ? "active" : ""}`}
             onClick={() => setActiveFilter("all")}
           >
-            All Credentials ({section1Featured.length + section2Specialized.length + section3Mini.length})
+            All Credentials (
+            {foundationCerts.length +
+              specializedCerts.length +
+              softSkillsCerts.length +
+              aiCerts.length}
+            )
           </button>
           <button
-            className={`cert-filter-btn ${activeFilter === "featured" ? "active" : ""}`}
-            onClick={() => setActiveFilter("featured")}
+            className={`cert-filter-btn ${activeFilter === "foundation" ? "active" : ""}`}
+            onClick={() => setActiveFilter("foundation")}
           >
-            🏆 Featured Honors &amp; Awards ({section1Featured.length})
+            <FaLaptopCode
+              style={{ marginRight: "7px", verticalAlign: "-2px" }}
+            />
+            Core Foundations ({foundationCerts.length})
           </button>
           <button
             className={`cert-filter-btn ${activeFilter === "specialized" ? "active" : ""}`}
             onClick={() => setActiveFilter("specialized")}
           >
-            🧠 Specialized AI &amp; Learning Paths ({section2Specialized.length})
+            <FaServer style={{ marginRight: "7px", verticalAlign: "-2px" }} />
+            Specialized Engineering ({specializedCerts.length})
           </button>
           <button
-            className={`cert-filter-btn ${activeFilter === "mini" ? "active" : ""}`}
-            onClick={() => setActiveFilter("mini")}
+            className={`cert-filter-btn ${activeFilter === "softskills" ? "active" : ""}`}
+            onClick={() => setActiveFilter("softskills")}
           >
-            📚 Foundational &amp; Mini-Courses ({section3Mini.length})
+            <FaUserTie style={{ marginRight: "7px", verticalAlign: "-2px" }} />
+            Business &amp; Soft Skills ({softSkillsCerts.length})
+          </button>
+          <button
+            className={`cert-filter-btn ${activeFilter === "ai" ? "active" : ""}`}
+            onClick={() => setActiveFilter("ai")}
+          >
+            <FaRobot style={{ marginRight: "7px", verticalAlign: "-2px" }} />
+            Artificial Intelligence ({aiCerts.length})
           </button>
         </div>
 
-        {/* Section 1: Featured Honors */}
-        {showSection1 && (
+        {/* Section 1: Core Foundations */}
+        {showFoundation && (
           <div style={{ marginBottom: "50px" }}>
             <div className="cert-section-header">
-              <AiOutlineTrophy style={{ color: "#F59E0B" }} />
-              <span>Featured Honors &amp; Top Achievements</span>
+              <FaLaptopCode style={{ color: "#00ff87", fontSize: "1.2em" }} />
+              <span>Core Foundations</span>
+              <span className="cert-count-badge">{foundationCerts.length}</span>
             </div>
             <Row style={{ justifyContent: "center" }}>
-              {section1Featured.map((cert, index) => (
-                <Col md={6} lg={4} key={index} style={{ marginBottom: "25px" }}>
+              {foundationCerts.map((cert, index) => (
+                <Col
+                  md={6}
+                  lg={4}
+                  key={index}
+                  style={{ marginBottom: "25px", display: "flex" }}
+                >
                   <CertificateCards
                     img={cert.img}
                     title={cert.title}
@@ -376,16 +457,24 @@ function Certificates() {
           </div>
         )}
 
-        {/* Section 2: Specialized AI & Programs */}
-        {showSection2 && (
+        {/* Section 2: Specialized Engineering */}
+        {showSpecialized && (
           <div style={{ marginBottom: "50px" }}>
             <div className="cert-section-header">
-              <TbCertificate style={{ color: "#c770f0" }} />
-              <span>Specialized AI, Azure Learning Paths &amp; Programs</span>
+              <FaServer style={{ color: "#00ff87", fontSize: "1.2em" }} />
+              <span>Specialized Engineering</span>
+              <span className="cert-count-badge">
+                {specializedCerts.length}
+              </span>
             </div>
             <Row style={{ justifyContent: "center" }}>
-              {section2Specialized.map((cert, index) => (
-                <Col md={6} lg={4} key={index} style={{ marginBottom: "25px" }}>
+              {specializedCerts.map((cert, index) => (
+                <Col
+                  md={6}
+                  lg={4}
+                  key={index}
+                  style={{ marginBottom: "25px", display: "flex" }}
+                >
                   <CertificateCards
                     img={cert.img}
                     title={cert.title}
@@ -401,16 +490,53 @@ function Certificates() {
           </div>
         )}
 
-        {/* Section 3: Mini-Courses */}
-        {showSection3 && (
+        {/* Section 3: Business & Soft Skills */}
+        {showSoftSkills && (
           <div style={{ marginBottom: "50px" }}>
             <div className="cert-section-header">
-              <TbCertificate style={{ color: "#86efac" }} />
-              <span>Foundational &amp; Mini-Courses</span>
+              <FaUserTie style={{ color: "#00ff87", fontSize: "1.2em" }} />
+              <span>Business &amp; Soft Skills</span>
+              <span className="cert-count-badge">{softSkillsCerts.length}</span>
             </div>
             <Row style={{ justifyContent: "center" }}>
-              {section3Mini.map((cert, index) => (
-                <Col md={6} lg={4} key={index} style={{ marginBottom: "25px" }}>
+              {softSkillsCerts.map((cert, index) => (
+                <Col
+                  md={6}
+                  lg={4}
+                  key={index}
+                  style={{ marginBottom: "25px", display: "flex" }}
+                >
+                  <CertificateCards
+                    img={cert.img}
+                    title={cert.title}
+                    issuer={cert.issuer}
+                    date={cert.date}
+                    description={cert.description}
+                    link={cert.link}
+                    icon={cert.icon}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </div>
+        )}
+
+        {/* Section 4: Artificial Intelligence */}
+        {showAI && (
+          <div style={{ marginBottom: "50px" }}>
+            <div className="cert-section-header">
+              <FaRobot style={{ color: "#00ff87", fontSize: "1.2em" }} />
+              <span>Artificial Intelligence</span>
+              <span className="cert-count-badge">{aiCerts.length}</span>
+            </div>
+            <Row style={{ justifyContent: "center" }}>
+              {aiCerts.map((cert, index) => (
+                <Col
+                  md={6}
+                  lg={4}
+                  key={index}
+                  style={{ marginBottom: "25px", display: "flex" }}
+                >
                   <CertificateCards
                     img={cert.img}
                     title={cert.title}
